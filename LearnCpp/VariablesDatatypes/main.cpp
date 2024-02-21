@@ -11,11 +11,17 @@
 // /
 // %
 // Result: 
-// Enter multiple numbers:
+// Enter 10 numbers:
+// int numbers[10];
+// for(int i =0, i < 10; .....
+// cin >> numbers[i]
 // Sum of numbers:
 // lowest number:
 // Highest number:
 // Average:
+// 1. C-style array version
+// 2. Cpp style array version
+// 3. Bonus: use <algorithm> to do some of these things
 
 int main()
 {

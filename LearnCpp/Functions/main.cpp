@@ -64,6 +64,6 @@ int main()
 	int out1, out2;
 	funcBad(1, out1, out2);
 
-	Result result = funcGood(1);
+	//Result result = funcGood(1);
 
 }
