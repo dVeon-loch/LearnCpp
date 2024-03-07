@@ -1,13 +1,15 @@
 #include <iostream>
-
 #include "Functions.h"
-
-
 int main()
 {
-	CommonFunctions::PrintHelloWorld();
+	
+	CommonFunctions::Hello();
 }
 
+void CommonFunctions::Hello()
+{
+	std::cout << "Hello World!" << std::endl;
+}
 
 
 // Task List:
