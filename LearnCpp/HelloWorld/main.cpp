@@ -1,9 +1,14 @@
 #include <iostream>
 
+#include "Functions.h"
+
+
 int main()
 {
-	std::cout << "Hello World!" << std::endl;
+	CommonFunctions::PrintHelloWorld();
 }
+
+
 
 // Task List:
 // 1. Refactor this code out into a function that gets called from main
