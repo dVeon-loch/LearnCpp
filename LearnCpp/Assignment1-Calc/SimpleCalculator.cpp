@@ -57,7 +57,7 @@ bool SimpleCalculator::ValidateInput() const
 
 	rawInput.erase(std::remove_if(
 		begin(rawInput), end(rawInput),
-		[l = std::locale{}](char ch) { return std::isspace(ch, l); }
+		[l = std::locale{}](char ch) { return std::isspace(ch, l); }  
 	), end(rawInput));
 
   return true;
