@@ -30,7 +30,8 @@ public:
 
 	// NON-OVERRIDABLES
 	std::string GetName() const { return _name; };
-
+	std::string GetRawInputString() const { return _rawInputString; };
+	void PrintRawInputString() const { std::cout << _rawInputString << std::endl; };
 protected:
 	virtual void SetInputString(const std::string &inputString) { _rawInputString = inputString; }
 };

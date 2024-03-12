@@ -36,10 +36,13 @@ int main()
 		const bool validChoice = choice >= 0 && choice < calculators.size();
 
 		if (!validChoice) continue;
-
+		std::string expression = "";
 		calculators[choice]->RequestInput();
 
-		std::cout << std::format("Calculated Result: {}\n", calculators[choice]->CalculateResult());
+ 		std::cout << std::format("Calculated Result: {}\n", calculators[choice]->CalculateResult());
+		
 		PrintHorizontalRule();
+
+		userInput = 'q';
 	}
 }
