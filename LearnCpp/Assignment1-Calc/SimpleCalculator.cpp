@@ -1,5 +1,6 @@
 #include "SimpleCalculator.h"
 #include <sstream>
+#include <locale>
 //#include <string>
 
 void SimpleCalculator::RequestInput()
