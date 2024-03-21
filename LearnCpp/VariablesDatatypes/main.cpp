@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <vector>
 
 // CALCULATOR
 // user input "Enter Number 1:"
@@ -32,9 +33,90 @@ int main()
 	std::cin >> operation;
 
 	std::cout << "OPERATION " << operation;
+
+	if (true)
+	{
+		// do something
+	}
+	else if (true)
+	{
+		// do something
+	}
+	else
+	{
+		// do something
+	}
+
+	if(true)
+	{
+		//dosomething <--- This will be inside if statement
+		//dosomething <--- This will not be inside
+	}
+
+#pragma region enums
+	enum test
+	{
+		val1 = 0,
+		val2 = 1
+	};
+
+	enum Direction
+	{
+		LEFT,
+		RIGHT,
+		UP,
+		DOWN
+	};
+#pragma endregion
+
+	test val = val1;
+	switch (val) 
+	{
+	case val1:
+		// dropthrough
+		[[dropthrough]] // Stops compiler warning and shows other programmers that you want to drop through
+	case val2:
+		break;
+	default:
+		break;
+	}
+
+	int i = true == true ? 0 : 1;
+
+	// LOOPING
+	while (true)
+	{
+		continue; // Go to next loop
+		break; // Break out of loop
+	}
+
+	do 
+	{
+	// do something
+	} while (true);
+
+	size_t i = 0;
+	for (i = 0; i < 10; i++)
+	{
+		continue;
+	}
+
+	std::vector<int> intVec = { 1,2,3,4 };
+
+	for (int element : intVec)
+	{
+		element = 3;
+	}
+
+	for (auto element : intVec)
+	{
+		element = 3;
+	}
+
+	intVec = { 3,3,3,3 };
 }
 
-////unsigned char largest = std::numeric_limits<char>().max();
+	////unsigned char largest = std::numeric_limits<char>().max();
 
 	////std::cout << "The largest char is: " << static_cast<int>(largest) << std::endl;
 
