@@ -131,13 +131,13 @@
   <ItemGroup>
     <ClInclude Include="AdvancedCalculator.h" />
     <ClInclude Include="CalculatorBase.h" />
-    <ClInclude Include="Expression _expression%3b.h" />
+    <ClInclude Include="ShuntingYard.h" />
     <ClInclude Include="SimpleCalculator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdvancedCalculator.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RPNExpression.cpp" />
+    <ClCompile Include="ShuntingYard.cpp" />
     <ClCompile Include="SimpleCalculator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

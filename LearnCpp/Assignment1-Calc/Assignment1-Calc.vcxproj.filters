@@ -24,7 +24,7 @@
     <ClInclude Include="AdvancedCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Expression _expression%3b.h">
+    <ClInclude Include="ShuntingYard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RPNExpression.cpp">
+    <ClCompile Include="ShuntingYard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
