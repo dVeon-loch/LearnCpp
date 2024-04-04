@@ -1,4 +1,5 @@
 #include "SimpleCalculator.h"
+#include "RPNExpression.h"
 #include <sstream>
 #include <locale>
 //#include <string>
@@ -6,7 +7,10 @@
 
 void SimpleCalculator::RequestInput()
 {
-  #define MAX_NAME_LEN 16
+	RPNExpression expresion;
+  
+
+	#define MAX_NAME_LEN 16
   std::string message = R"(
   Please enter the expression you would like to calculate.
   Simple operations are supported while taking into account order of operations.
@@ -14,6 +18,8 @@ void SimpleCalculator::RequestInput()
 
   std::cout << message << std::endl << std::endl;
   std::string inputString;
+ 
+
   
   // If there was a previous std::cin, clear the input buffer:
   std::cin.clear();
@@ -21,6 +27,8 @@ void SimpleCalculator::RequestInput()
 
   std::getline(std::cin, inputString);
   
+ expresion.stringToInfix = expresion.stringToInfix(inputString);
+
   //std::cin >> inputString;
 
   SetInputString(inputString);

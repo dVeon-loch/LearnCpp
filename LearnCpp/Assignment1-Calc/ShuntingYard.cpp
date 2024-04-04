@@ -1,24 +1,22 @@
-#include "RPNExpression.h"
+
 #include <stdexcept>
+#include "ShuntingYard.h"
 
-void RPNExpression::Push(const VariantType& token)
+
+
+void ShuntingYard::handle_left_paren()
 {
-	_expression.push_back(token);
 }
 
-void RPNExpression::Pop()
+void ShuntingYard::handle_op(char op)
 {
-	if (!_expression.empty()) {
-		_expression.pop_back();
-	}
-	else {
-		throw std::runtime_error("attempted an empty expression");
-	}
 }
 
-bool RPNExpression::Empty()
+RPNExpression ShuntingYard::convert(const std::string& infix)
 {
-	return _expression.empty();
+	return RPNExpression();
 }
+
+
 
 

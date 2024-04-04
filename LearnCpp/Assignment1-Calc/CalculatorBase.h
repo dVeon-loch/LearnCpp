@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "ShuntingYard.h"
 
 class CalculatorBase
 {
