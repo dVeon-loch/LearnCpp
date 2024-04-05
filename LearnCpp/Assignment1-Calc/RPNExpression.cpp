@@ -1,11 +1,11 @@
 #include <stdexcept>
 #include "ShuntingYard.h"
 #include "RPNExpression.h"
+#include <stack>
 
 
-RPNExpression::Expression RPNExpression::stringToInfix(const std::string& str)
+void RPNExpression::stringToInfix(const std::string& str)
 {
-	Expression infix;
 	std::istringstream iss(str);
 	std::string token;
 
@@ -13,19 +13,79 @@ RPNExpression::Expression RPNExpression::stringToInfix(const std::string& str)
 	{
 		if (isNumber(token))
 		{
-			infix.push_back(std::stod(token));
+			_infix.push_back(std::stod(token));
 		}
-		else {
-			infix.push_back(token);
+		else 
+		{
+			_infix.push_back(token);
 		}
 	}
-	return infix;
+
+	infixToPostfix(_infix);
+	return ;
 }
 
-bool RPNExpression::isNumber(const VariantType& token)
+void RPNExpression::infixToPostfix(Expression infix)
 {
-	//Checks if the variant tocken holds the alternative double
-	return std::holds_alternative<double>(token);
+	Expression postfix;
+	std::stack<VariantType> opStack;
+	
+
+	for (const auto& token : _infix) 
+	{
+		if (std::holds_alternative<double>(token)) 
+		{
+			_postfix.push_back(token);
+		}
+		else
+		{
+			if (isOpenParenthesis(token))
+			{
+				opStack.push(token);
+			}
+			else if (isCloseParenthesis(token)) 
+			{
+				while (!opStack.empty() && std::get<std::string>(opStack.top()) != "(") {
+					_postfix.push_back(opStack.top());
+					opStack.pop();
+				}
+				opStack.pop(); // Pop the "("
+			}
+			else {
+				while (!opStack.empty() && hasHigherPrecedence(std::get<std::string>(opStack.top()), token)) {
+					_postfix.push_back(opStack.top());
+					opStack.pop();
+				}
+				opStack.push(token);
+			}
+		}
+	}
+	
+	while (!opStack.empty()) 
+	{
+		_postfix.push_back(opStack.top());
+		opStack.pop();
+	}
+
+	return ;
+
+	
+
+	
+
+	return ;
+
+	
+}
+
+bool RPNExpression::isNumber(const std::string& token)
+{
+	//https://stackoverflow.com/questions/19349112/how-to-check-if-a-string-can-be-converted-to-double-in-c
+	std::istringstream iss(token);
+	double num;
+	iss >> num;
+	return iss.eof() && !iss.fail();
+	
 }
 
 bool RPNExpression::isOperator(const VariantType& token)

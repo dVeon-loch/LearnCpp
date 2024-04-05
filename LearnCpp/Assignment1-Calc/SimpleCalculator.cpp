@@ -27,7 +27,7 @@ void SimpleCalculator::RequestInput()
 
   std::getline(std::cin, inputString);
   
- expresion.stringToInfix = expresion.stringToInfix(inputString);
+  expresion.stringToInfix(inputString);
 
   //std::cin >> inputString;
 

@@ -13,11 +13,13 @@ class RPNExpression
 	using Expression = std::vector<VariantType>;
 
 private:
+	Expression _infix;
+	Expression _postfix;
 	Expression _expression;
 
 	
 
-	bool isNumber(const VariantType& token);
+	bool isNumber(const std::string& token);
 
 	bool isOperator(const VariantType& token);
 
@@ -29,7 +31,9 @@ private:
 
 public:
 
-	static RPNExpression::Expression stringToInfix(const std::string& str);
+	void stringToInfix(const std::string& str);
+
+	void infixToPostfix(Expression infix);
 
 	//add a token to the back of the expression
 	void Push(const VariantType& token);
