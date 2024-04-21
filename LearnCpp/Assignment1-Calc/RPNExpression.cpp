@@ -72,7 +72,7 @@ void RPNExpression::infixToPostfix(Expression infix)
 	
 }
 
-double RPNExpression::evaluate(const Expression& expression)
+void RPNExpression::evaluate(const Expression& expression)
 {
 	std::stack<double> stack;
 
@@ -89,8 +89,17 @@ double RPNExpression::evaluate(const Expression& expression)
 		}
 	}
 
-	return stack.top();
+	_result.push_back(stack.top());
+
+	std::cout << "-------------" << std::endl;
+	std::cout << "The result is " << stack.top() << std::endl;
+	std::cout << "-------------" << std::endl;
+
+	return ;
+	
 }
+
+
 
 bool RPNExpression::isNumber(const std::string& token)
 {

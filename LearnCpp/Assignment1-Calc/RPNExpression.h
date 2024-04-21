@@ -15,6 +15,7 @@ class RPNExpression
 private:
 	Expression _infix;
 	Expression _expression;
+	Expression _result;  //calulators can store previous results these days
 
 	
 
@@ -37,7 +38,9 @@ public:
 
 	void infixToPostfix(Expression infix);
 
-	double evaluate(const Expression& expression);
+	void evaluate(const Expression& expression);
+
+	
 
 	//add a token to the back of the expression
 	void Push(const VariantType& token);

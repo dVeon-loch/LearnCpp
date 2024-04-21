@@ -14,6 +14,7 @@ void SimpleCalculator::RequestInput()
   std::string message = R"(
   Please enter the expression you would like to calculate.
   Simple operations are supported while taking into account order of operations.
+  *Include spaces*
   e.g. 1 + 2 - 5 * 6 + 7 / 2)";
 
   std::cout << message << std::endl << std::endl;
@@ -33,10 +34,10 @@ void SimpleCalculator::RequestInput()
 
   //std::cin >> inputString;
 
-  SetInputString(inputString);
+  //SetInputString(inputString);
   // TODO: Ask again if input not valid? How?
   // TODO: Do something with this result
-  ValidateInput();
+  //ValidateInput();
 
   // TODO: Both implementations of CalculatorBase will pretty much do this exact same thing in the lines above. So we could potentially move the logic above this line into the base class
   // and then call it before doing the rest in each child class... But that is bad. Do some research on the 'Call Super' antipattern and how to fix it. Hint: template pattern

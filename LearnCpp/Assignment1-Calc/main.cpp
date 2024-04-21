@@ -18,7 +18,7 @@ int main()
 	std::vector<std::unique_ptr<CalculatorBase>> calculators; // See usage of pointers for Polymorphic behaviour
 
 	calculators.emplace_back(std::make_unique<SimpleCalculator>("Simple Calculator"));
-	calculators.emplace_back(std::make_unique<AdvancedCalculator>("Advanced Calculator"));
+	//calculators.emplace_back(std::make_unique<AdvancedCalculator>("Advanced Calculator"));
 
 
 	while (userInput != 'q')
