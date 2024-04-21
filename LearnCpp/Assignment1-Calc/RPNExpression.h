@@ -14,7 +14,6 @@ class RPNExpression
 
 private:
 	Expression _infix;
-	Expression _postfix;
 	Expression _expression;
 
 	
@@ -29,11 +28,16 @@ private:
 
 	bool isCloseParenthesis(const VariantType& token);
 
+	double performOperation(double operand1, double operand2, const std::string& op);
+
 public:
+	Expression _postfix;
 
 	void stringToInfix(const std::string& str);
 
 	void infixToPostfix(Expression infix);
+
+	double evaluate(const Expression& expression);
 
 	//add a token to the back of the expression
 	void Push(const VariantType& token);

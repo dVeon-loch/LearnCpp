@@ -70,12 +70,26 @@ void RPNExpression::infixToPostfix(Expression infix)
 	return ;
 
 	
+}
 
-	
+double RPNExpression::evaluate(const Expression& expression)
+{
+	std::stack<double> stack;
 
-	return ;
+	for (const auto& token : expression) {
+		if (std::holds_alternative<double>(token)) {
+			stack.push(std::get<double>(token));
+		}
+		else {
+			double operand2 = stack.top(); stack.pop();
+			double operand1 = stack.top(); stack.pop();
 
-	
+			double result = performOperation(operand1, operand2, std::get<std::string>(token));
+			stack.push(result);
+		}
+	}
+
+	return stack.top();
 }
 
 bool RPNExpression::isNumber(const std::string& token)
@@ -124,6 +138,21 @@ bool RPNExpression::isCloseParenthesis(const VariantType& token)
 {
 	return std::holds_alternative<std::string>(token) && std::get<std::string>(token) == ")";
 }
+
+double RPNExpression::performOperation(double operand1, double operand2, const std::string& op)
+{
+	if (op == "+") return operand1 + operand2;
+	else if (op == "-") return operand1 - operand2;
+	else if (op == "*") return operand1 * operand2;
+	else if (op == "/") 
+	{
+		if (operand2 == 0) throw std::runtime_error("Division by zero");
+		return operand1 / operand2;
+	}
+	//else if (op == "^") return std::pow(operand1, operand2);
+	else throw std::invalid_argument("Invalid operator");
+}
+
 
 void RPNExpression::Push(const VariantType& token)
 {

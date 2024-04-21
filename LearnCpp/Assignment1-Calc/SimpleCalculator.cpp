@@ -29,6 +29,8 @@ void SimpleCalculator::RequestInput()
   
   expresion.stringToInfix(inputString);
 
+  expresion.evaluate(expresion._postfix);
+
   //std::cin >> inputString;
 
   SetInputString(inputString);
